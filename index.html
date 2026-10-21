@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN" data-language="zh" data-theme="light">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" type="image/png" href="figs/logo.png">
+<link rel="icon" type="image/png" href="figs/logo1.png">
 <title>星鉴 Plate-YOLO | 历史天文底片智能目标检测</title>
 <meta name="description" content="上海天文台星鉴（Plate-YOLO）：面向历史天文底片的智能目标检测与天体测量定标。">
 <style>
@@ -167,7 +167,7 @@ html {
 <div class="toolbar">
 <a class="home" href="https://xuquanfeng.github.io/AI_Plate/">Classification Plate · 
 <span><span lang="zh-CN">先前工作</span><span lang="en">Previous Work</span></span></a>
-<div class="controls"><div class="languages" role="group" aria-label="语言 / Language"><button type="button" id="en-button" lang="en-US" aria-pressed="false">English</button><button type="button" id="zh-button" lang="zh-Hans" aria-pressed="true">中文</button></div><button type="button" id="theme-button" aria-pressed="false">深色模式</button></div></div>
+<div class="controls"><div class="languages" role="group" aria-label="语言 / Language"><button type="button" id="zh-button" lang="zh-Hans" aria-pressed="true">中文</button><button type="button" id="en-button" lang="en-US" aria-pressed="false">English</button></div><button type="button" id="theme-button" aria-pressed="false">深色模式</button></div></div>
 <p class="eyebrow"><span lang="zh-CN">上海天文台 · 天文底片数字化实验室</span><span lang="en">Shanghai Astronomical Observatory · Plate Digitization LAB</span></p>
 <header>
   <div class="logo-container">
@@ -231,7 +231,20 @@ html {
   Historical astronomical plates preserve over a century of observations, providing valuable records for studying stellar proper motions and long-term celestial evolution. However, plate aging, complex backgrounds, tiny stellar images, and scratches make reliable stellar source extraction challenging, often preventing successful astrometric calibration with conventional methods.
 </span>
 </p>
-
+<figure>
+  <img
+    src="figs/result.png"
+    class="method-figure"
+  >
+  <figcaption style="text-align: center">
+    <span lang="zh-CN">
+      图 1. 星鉴模型检测底片中恒星源效果。
+    </span>
+    <span lang="en">
+      Figure 1. Star source detection in plates from the Plate-YOLO.
+    </span>
+  </figcaption>
+</figure>
 <p>
 <span lang="zh-CN">
   针对上述问题，我们提出了 Plate-YOLO（星鉴），一种基于改进 YOLOv5 的历史天文底片恒星检测框架。通过结合 Gaia DR3 参考星表进行跨档案微调，实现复杂底片中恒星与伪源的有效区分，并利用简单的仪器亮度估计与排序，为 Astrometry.net 提供更加纯净、可靠的恒星星表，从而提高自动天体测量定标的成功率。
@@ -250,6 +263,22 @@ html {
 <section id="background"><h2 style="text-align: center"><span lang="zh-CN">科学背景：从数字化到科学数据化</span><span lang="en">Motivation: From Scanned Images to Scientific Data</span></h2>
 <p><span lang="zh-CN">历史底片是研究恒星自行、长期变源及其他时域天文现象的重要观测资料。高精度扫描能够保存底片的图像信息，但要确定天体的真实天球坐标，还必须准确识别恒星并完成天体测量定标。</span><span lang="en">Historical plates are valuable for studying stellar proper motions, long-term variable sources, and other time-domain phenomena. High-precision scanning preserves their image information; determining celestial coordinates additionally requires reliable stellar identification and astrometric calibration.</span></p>
 <p><span lang="zh-CN">传统流程通常先使用 SExtractor 提取候选天体源，再通过分类排除伪源，最后与参考星表匹配。划痕、霉斑、感光乳胶脱落，以及星像畸变和拖线，可能造成误检或漏检，降低匹配可靠性，使定标需要反复调整，甚至无法获得可靠解。</span><span lang="en">Conventional workflows typically extract candidate sources with SExtractor, classify them to reject spurious detections, and then match them to a reference catalog. Scratches, mold, emulsion loss, distorted stellar images, and trails can cause false detections or missed stars, undermining catalog matching and requiring repeated adjustments—or preventing a reliable solution altogether.</span></p>
+
+<figure>
+  <img
+    src="figs/scan_images.png"
+    class="method-figure"
+  >
+  <figcaption style="text-align: center">
+    <span lang="zh-CN">
+      图 2. 上海天文台自主研发的高精度底片扫描仪。
+    </span>
+    <span lang="en">
+      Figure 2. Architecture of the Plate-YOLO framework.
+    </span>
+  </figcaption>
+</figure>
+
 <p><span lang="zh-CN">上海天文台天文底片数字化实验室拥有 5 台高精度扫描仪，其中 4 台亚微米级测量设备由团队自主研制。实验室已完成我国 29,314 张历史底片的数字化，其中 15,696 张底片的数字化图像及天体测量成果已向全球开放共享。</span><span lang="en">The laboratory operates five high-precision plate scanners, including four submicrometer-level measuring systems developed in-house. It has digitized 29,314 Chinese historical plates; digitized images and astrometric results for 15,696 plates have been made openly available worldwide.</span></p>
 <p><span lang="zh-CN">近年来，实验室与乌兹别克斯坦、意大利、日本、智利等国天文机构合作，累计完成约 5 万张国际历史天文底片的数字化，为天文观测遗产的保护与科学利用提供支撑。</span><span lang="en">Through collaborations with astronomical institutions in Uzbekistan, Italy, Japan, Chile, and other countries, the laboratory has also digitized approximately 50,000 international historical plates, supporting the preservation and scientific use of astronomical heritage.</span></p>
 </section>
@@ -282,10 +311,10 @@ html {
     >
     <figcaption style="text-align: center">
       <span lang="zh-CN">
-        图 1. Plate-YOLO 模型结构示意图。
+        图 3. Plate-YOLO 模型结构示意图。
       </span>
       <span lang="en">
-        Figure 1. Architecture of the Plate-YOLO framework.
+        Figure 3. Architecture of the Plate-YOLO framework.
       </span>
     </figcaption>
   </figure>
@@ -381,11 +410,11 @@ html {
 
     <figcaption style="text-align: center">
       <span lang="zh-CN">
-        图 2. Plate-YOLO 在 150 张历史底片上的恢复结果。
+        图 4. Plate-YOLO 在 150 张历史底片上的恢复结果。
         146 张非彗星跟踪底片全部成功定标。
       </span>
       <span lang="en">
-        Figure 2. Plate-YOLO recovery results for 150 historical plates.
+        Figure 4. Plate-YOLO recovery results for 150 historical plates.
         All 146 non-comet-tracking plates were successfully solved.
       </span>
     </figcaption>
@@ -424,11 +453,11 @@ html {
 
     <figcaption style="text-align: center">
       <span lang="zh-CN">
-        图 3. 特殊彗星跟踪观测底片示例。
+        图 5. 特殊彗星跟踪观测底片示例。
         背景恒星因望远镜跟踪彗星而呈现明显拖线。
       </span>
       <span lang="en">
-        Figure 3. Examples of special comet-tracking plates.
+        Figure 5. Examples of special comet-tracking plates.
         Background stars exhibit significant trailing due to comet tracking.
       </span>
     </figcaption>
@@ -626,6 +655,6 @@ html {
   function language(value){root.dataset.language=value;root.lang=value==='zh'?'zh-CN':'en';zh.setAttribute('aria-pressed',String(value==='zh'));en.setAttribute('aria-pressed',String(value==='en'));document.title=value==='zh'?'星鉴 Plate-YOLO | 历史天文底片智能目标检测':'Plate-YOLO | Detection for Historical Astronomical Plates';document.querySelector('meta[name=description]').content=value==='zh'?'上海天文台星鉴（Plate-YOLO）：面向历史天文底片的智能目标检测与天体测量定标。':'Plate-YOLO from Shanghai Astronomical Observatory: intelligent object detection and astrometric calibration for historical astronomical plates.';save('plate-yolo-language',value);label()}
   zh.addEventListener('click',()=>language('zh'));en.addEventListener('click',()=>language('en'));
   theme.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';save('plate-yolo-theme',root.dataset.theme);label()});
-  root.dataset.theme=read('plate-yolo-theme')==='dark'?'dark':'light';language(read('plate-yolo-language')==='zh'?'zh':'en');
+  root.dataset.theme=read('plate-yolo-theme')==='dark'?'dark':'light';language(read('plate-yolo-language')==='en'?'en':'zh');
 })();
 </script></body></html>
