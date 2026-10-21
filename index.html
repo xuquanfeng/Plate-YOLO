@@ -163,6 +163,11 @@ html {
 @media(max-width:700px){body{font-size:15px}.page{margin:0;padding:20px;box-shadow:none}h1{font-size:27px}.subtitle{font-size:18px}.toolbar{align-items:flex-start}.home{max-width:42%}.controls{justify-content:flex-end}.metrics{grid-template-columns:1fr}.metric,.metric:first-child{padding:12px 0}.metric+.metric{border-left:0;border-top:1px solid var(--line)}.metric b{font-size:25px}.flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}figure{padding:18px 16px}nav{gap:7px 15px}.footer{flex-direction:column;gap:5px}th,td{padding:10px 7px}}
 @media print{.toolbar,.footer a,nav{display:none}.page{margin:0;max-width:none;box-shadow:none;padding:0}body{background:white}figure,.metrics{break-inside:avoid}h2{break-after:avoid}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.recovery-highlight{text-align:center;padding:26px 18px;margin:24px 0 12px;background:var(--soft);border-top:2px solid var(--accent)}
+.recovery-highlight strong{font-size:56px;line-height:1.2;color:var(--accent);font-weight:500}.recovery-highlight p{margin:10px 0 0;font-size:18px}
+details{margin:24px 0;padding:16px 18px;border:1px solid var(--line)}summary{cursor:pointer;color:var(--link);font-weight:600}details[open] summary{margin-bottom:16px}.resource-pending{border-color:var(--line);color:var(--muted)}.resource-pending:hover{transform:none;background:none}.hero-actions{justify-content:center}.publication{text-align:center}.method-figure{max-width:760px}
+@media print{.back-to-top{display:none}}
 </style></head><body><main class="page" id="top">
 <div class="toolbar">
 <a class="home" href="https://xuquanfeng.github.io/AI_Plate/">Classification Plate · 
@@ -173,19 +178,19 @@ html {
   <div class="logo-container">
     <img src="figs/logo.png" alt="Plate-YOLO Logo" class="site-logo">
   </div>
-  <h1 style="text-align: center"><span><span lang="zh-CN"><span class="name">星鉴</span> · Plate-YOLO</span><span lang="en"><span class="name">Plate-YOLO</span> · 星鉴</span></span><span class="subtitle"><span lang="zh-CN">面向历史天文底片配准的端到端目标检测框架</span><span lang="en">An End-to-End Object Detection Framework for Robust Astrometric Registration of Historical Plates</span></span></h1>
+  <h1 style="text-align: center"><span><span lang="zh-CN"><span class="name">星鉴</span> · Plate-YOLO</span><span lang="en"><span class="name">Plate-YOLO</span> · 星鉴</span></span><span class="subtitle"><span lang="zh-CN">识别历史星光，找回百年观测</span><span lang="en">Detect the Stars. Recover a Century of Observations.</span></span></h1>
 <p class="authors" style="text-align: center"><span lang="zh-CN"><span class="author-block">
-                <a href="https://xuquanfeng.github.io/" target="_blank">徐权峰</a>,</span>
+                <a href="https://xuquanfeng.github.io/" target="_blank" rel="noopener noreferrer">徐权峰</a>,</span>
                   <span class="author-block">
                     商正君,</span>
                   <span class="author-block">
-                    <a href="http://202.127.29.3/~shen/wiki/index.php/About_Me" target="_blank">沈世银</a><sup>*</sup>,</span>
+                    <a href="http://202.127.29.3/~shen/wiki/index.php/About_Me" target="_blank" rel="noopener noreferrer">沈世银</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="https://shao.cas.cn/sourcedb/zw/zjrck/201412/t20141227_4282643.html" target="_blank">于涌</a><sup>*</sup>,</span>
+                    <a href="https://shao.cas.cn/sourcedb/zw/zjrck/201412/t20141227_4282643.html" target="_blank" rel="noopener noreferrer">于涌</a><sup>*</sup>,</span>
                   <span class="author-block">
                     马铭阳,</span>
                   <span class="author-block">
-                    <a href="http://www.shao.cas.cn/sourcedb/zw/zjrck/200907/t20090723_2160293.html" target="_blank">唐正宏</a>,</span>
+                    <a href="http://www.shao.cas.cn/sourcedb/zw/zjrck/200907/t20090723_2160293.html" target="_blank" rel="noopener noreferrer">唐正宏</a>,</span>
                   <span class="author-block">
                     杨美婷,</span>
                   <span class="author-block">
@@ -193,305 +198,41 @@ html {
                   <span class="author-block">
                     赵建海
                   </span></span><span lang="en"><span class="author-block">
-                <a href="https://xuquanfeng.github.io/" target="_blank">Quanfeng Xu</a>,</span>
+                <a href="https://xuquanfeng.github.io/" target="_blank" rel="noopener noreferrer">Quanfeng Xu</a>,</span>
                   <span class="author-block">
                     Zhengjun Shang,</span>
                   <span class="author-block">
-                    <a href="http://202.127.29.3/~shen/wiki/index.php/About_Me" target="_blank">Shiyin Shen</a><sup>*</sup>,</span>
+                    <a href="http://202.127.29.3/~shen/wiki/index.php/About_Me" target="_blank" rel="noopener noreferrer">Shiyin Shen</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="https://shao.cas.cn/sourcedb/zw/zjrck/201412/t20141227_4282643.html" target="_blank">Yong Yu</a><sup>*</sup>,</span>
+                    <a href="https://shao.cas.cn/sourcedb/zw/zjrck/201412/t20141227_4282643.html" target="_blank" rel="noopener noreferrer">Yong Yu</a><sup>*</sup>,</span>
                   <span class="author-block">
                     Mingyang Ma,</span>
                   <span class="author-block">
-                    <a href="http://www.shao.cas.cn/sourcedb/zw/zjrck/200907/t20090723_2160293.html" target="_blank">Zhenghong Tang</a>,</span>
+                    <a href="http://www.shao.cas.cn/sourcedb/zw/zjrck/200907/t20090723_2160293.html" target="_blank" rel="noopener noreferrer">Zhenghong Tang</a>,</span>
                   <span class="author-block">
                     Meiting Yang,</span>
                   <span class="author-block">
                     Jing Yang,</span>
                   <span class="author-block">
-                    Jianhai Zhao</span></span></p>
-                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding author</small></span> -->
+                    Jianhai Zhao</span></span>
+                  <br>
+                  <span lang="zh-CN"><sup>*</sup>通讯作者</span><span lang="en"><sup>*</sup>Corresponding author</span>
+                  </p>
+                    
 <p class="affiliation"><span lang="zh-CN">中国科学院上海天文台</span><span lang="en">Shanghai Astronomical Observatory, Chinese Academy of Sciences</span><br>
 <span lang="zh-CN">中国科学院大学</span><span lang="en">University of Chinese Academy of Sciences</span></p>
 <p class="publication"><span lang="zh-CN">相关研究论文已被 <i>The Astronomical Journal</i>（AJ）<strong>接收</strong>。</span><span lang="en">The research paper has been <strong>accepted</strong> by <i>The Astronomical Journal</i> (AJ).</span></p>
-<nav aria-label="Sections">
-<a href="#overview"><span><span lang="zh-CN">研究概述</span><span lang="en">Overview</span></span></a>
-<a href="#background"><span><span lang="zh-CN">科学背景</span><span lang="en">Motivation</span></span></a>
-<a href="#method"><span><span lang="zh-CN">方法</span><span lang="en">Method</span></span></a>
-<a href="#results"><span><span lang="zh-CN">研究结果</span><span lang="en">Results</span></span></a>
-<a href="#outlook"><span><span lang="zh-CN">科学意义</span><span lang="en">Outlook</span></span></a>
-<a href="#resources"><span><span lang="zh-CN">成果与支持</span><span lang="en">Resources</span></span></a>
-</nav></header>
-<section id="overview"><h2 style="text-align: center"><span lang="zh-CN">研究概述</span><span lang="en">Overview</span></h2>
-<p>
-<span lang="zh-CN">
-  历史天文底片记录了跨越百年的天文观测数据，是研究恒星自行及天体长期演化的重要资料。然而，受限于底片老化、背景复杂、星像微小及划痕等因素，传统源提取方法难以准确识别恒星，导致部分底片无法完成天体测量定标。
-</span>
-<span lang="en">
-  Historical astronomical plates preserve over a century of observations, providing valuable records for studying stellar proper motions and long-term celestial evolution. However, plate aging, complex backgrounds, tiny stellar images, and scratches make reliable stellar source extraction challenging, often preventing successful astrometric calibration with conventional methods.
-</span>
-</p>
-<figure>
-  <img
-    src="figs/result.png"
-    class="method-figure"
-  >
-  <figcaption style="text-align: center">
-    <span lang="zh-CN">
-      图 1. 星鉴模型检测底片中恒星源效果。
-    </span>
-    <span lang="en">
-      Figure 1. Star source detection in plates from the Plate-YOLO.
-    </span>
-  </figcaption>
-</figure>
-<p>
-<span lang="zh-CN">
-  针对上述问题，我们提出了 Plate-YOLO（星鉴），一种基于改进 YOLOv5 的历史天文底片恒星检测框架。通过结合 Gaia DR3 参考星表进行跨档案微调，实现复杂底片中恒星与伪源的有效区分，并利用简单的仪器亮度估计与排序，为 Astrometry.net 提供更加纯净、可靠的恒星星表，从而提高自动天体测量定标的成功率。
-</span>
-<span lang="en">
-  To address these challenges, we introduce Plate-YOLO (星鉴), an enhanced YOLOv5-based framework for stellar detection in historical astronomical plates. Through cross-archive fine-tuning using Gaia DR3 reference catalogs, the framework effectively distinguishes stellar sources from artifacts in complex plate images. Combined with approximate instrumental brightness estimation and ranking, Plate-YOLO provides Astrometry.net with cleaner and more reliable stellar catalogs, thereby improving the success rate of automated astrometric calibration.
-</span>
-</p>
-<!-- <p><span lang="zh-CN">历史天文底片保存了跨越百年的真实星空。“星鉴”（Plate-YOLO）针对底片中星像微小、背景复杂和图像退化等特点，在统一模型中完成恒星目标的自动定位与分类，为后续天体测量定标提供更加可靠的恒星数据。</span><span lang="en">Historical astronomical plates preserve a record of the sky spanning more than a century. Plate-YOLO (Xingjian) jointly locates and classifies stellar sources in a single model, addressing tiny star images, complex backgrounds, and image degradation to provide more reliable stellar detections for subsequent astrometric calibration.</span></p>
-<p><span lang="zh-CN">研究团队在 YOLOv5 框架基础上优化了小目标检测、多尺度特征提取和边界框回归，并通过基于 Gaia 参考星表的跨档案微调，使模型逐步适应不同历史底片档案。</span><span lang="en">Built on YOLOv5, the framework improves small-object detection, multiscale feature extraction, and bounding-box regression. Gaia-guided cross-archive fine-tuning helps the model adapt to historical plates from different archives.</span></p> -->
-<div class="metrics">
-<div class="metric"><b>146 / 150</b><span class="label"><span lang="zh-CN">原未定标底片成功恢复</span><span lang="en">Previously unsolved plates recovered</span></span><span class="detail"><span lang="zh-CN">除了四张观测彗星的特殊底片，整体解算成功率 100%</span><span lang="en">Except for four special plates for observing comets, the overall solution success rate is 100%</span></span></div>
-<div class="metric"><b>0.563″</b><span class="label"><span lang="zh-CN">位置残差 RMS 中位数</span><span lang="en">Median positional RMS residual</span></span><span class="detail"><span lang="zh-CN">微调后新增恢复的 106 张底片</span><span lang="en">106 additional plates recovered after fine-tuning</span></span></div>
-<div class="metric"><b>≈ 2.6×</b><span class="label"><span lang="zh-CN">源检测速度提升</span><span lang="en">Faster source detection</span></span><span class="detail"><span lang="zh-CN">在另 500 张已定标底片上测试</span><span lang="en">Tested on 500 other, already solved plates</span></span></div>
-</div></section>
-<section id="background"><h2 style="text-align: center"><span lang="zh-CN">科学背景：从数字化到科学数据化</span><span lang="en">Motivation: From Scanned Images to Scientific Data</span></h2>
-<p><span lang="zh-CN">历史底片是研究恒星自行、长期变源及其他时域天文现象的重要观测资料。高精度扫描能够保存底片的图像信息，但要确定天体的真实天球坐标，还必须准确识别恒星并完成天体测量定标。</span><span lang="en">Historical plates are valuable for studying stellar proper motions, long-term variable sources, and other time-domain phenomena. High-precision scanning preserves their image information; determining celestial coordinates additionally requires reliable stellar identification and astrometric calibration.</span></p>
-<p><span lang="zh-CN">传统流程通常先使用 SExtractor 提取候选天体源，再通过分类排除伪源，最后与参考星表匹配。划痕、霉斑、感光乳胶脱落，以及星像畸变和拖线，可能造成误检或漏检，降低匹配可靠性，使定标需要反复调整，甚至无法获得可靠解。</span><span lang="en">Conventional workflows typically extract candidate sources with SExtractor, classify them to reject spurious detections, and then match them to a reference catalog. Scratches, mold, emulsion loss, distorted stellar images, and trails can cause false detections or missed stars, undermining catalog matching and requiring repeated adjustments—or preventing a reliable solution altogether.</span></p>
-
-<figure>
-  <img
-    src="figs/scan_images.png"
-    class="method-figure"
-  >
-  <figcaption style="text-align: center">
-    <span lang="zh-CN">
-      图 2. 上海天文台自主研发的高精度底片扫描仪。
-    </span>
-    <span lang="en">
-      Figure 2. Architecture of the Plate-YOLO framework.
-    </span>
-  </figcaption>
-</figure>
-
-<p><span lang="zh-CN">上海天文台天文底片数字化实验室拥有 5 台高精度扫描仪，其中 4 台亚微米级测量设备由团队自主研制。实验室已完成我国 29,314 张历史底片的数字化，其中 15,696 张底片的数字化图像及天体测量成果已向全球开放共享。</span><span lang="en">The laboratory operates five high-precision plate scanners, including four submicrometer-level measuring systems developed in-house. It has digitized 29,314 Chinese historical plates; digitized images and astrometric results for 15,696 plates have been made openly available worldwide.</span></p>
-<p><span lang="zh-CN">近年来，实验室与乌兹别克斯坦、意大利、日本、智利等国天文机构合作，累计完成约 5 万张国际历史天文底片的数字化，为天文观测遗产的保护与科学利用提供支撑。</span><span lang="en">Through collaborations with astronomical institutions in Uzbekistan, Italy, Japan, Chile, and other countries, the laboratory has also digitized approximately 50,000 international historical plates, supporting the preservation and scientific use of astronomical heritage.</span></p>
-</section>
-<section id="method">
-  <h2 style="text-align: center">
-    <span lang="zh-CN">方法：恒星检测与跨档案适配</span>
-    <span lang="en">Method: Stellar Detection and Cross-Archive Adaptation</span>
-  </h2>
-
-  <h3>
-    <span lang="zh-CN">Plate-YOLO 模型设计</span>
-    <span lang="en">Plate-YOLO Architecture</span>
-  </h3>
-
-  <p>
-    <span lang="zh-CN">
-      Plate-YOLO 基于 YOLOv5 构建，针对历史天文底片中恒星目标微小、背景复杂及图像退化等问题，引入 P2 高分辨率检测头增强小目标检测能力，利用 SPD-Conv 减少下采样过程中的特征损失，通过 SimAM 注意力机制优化特征提取，并采用 NWD 损失函数改善微小目标的边界框回归精度，实现恒星与非恒星目标的联合检测与分类。
-    </span>
-    <span lang="en">
-      Built upon YOLOv5, Plate-YOLO addresses tiny stellar sources, complex backgrounds, and image degradation in historical astronomical plates. It incorporates a high-resolution P2 detection head for small-object detection, SPD-Conv to preserve spatial information during downsampling, SimAM attention for enhanced feature extraction, and NWD loss for more robust bounding-box regression, enabling joint detection and classification of stellar and non-stellar sources.
-    </span>
-  </p>
-
-  <!-- Plate-YOLO 模型结构图 -->
-  <figure>
-    <img
-      src="figs/plate-yolo.png"
-      alt="Plate-YOLO Network Architecture"
-      class="method-figure"
-    >
-    <figcaption style="text-align: center">
-      <span lang="zh-CN">
-        图 3. Plate-YOLO 模型结构示意图。
-      </span>
-      <span lang="en">
-        Figure 3. Architecture of the Plate-YOLO framework.
-      </span>
-    </figcaption>
-  </figure>
-
-  <h3>
-    <span lang="zh-CN">跨档案适配与天体测量定标</span>
-    <span lang="en">Cross-Archive Adaptation and Astrometric Calibration</span>
-  </h3>
-
-  <p>
-    <span lang="zh-CN">
-      考虑到不同天文台、望远镜及感光材料造成的底片成像差异，我们提出了基于 Gaia DR3 参考星表的跨档案微调策略。首先利用基础模型对新档案进行恒星检测与初步定标，再将成功定标底片中的检测结果与 Gaia 恒星位置交叉匹配，自动生成训练样本，用于模型微调，从而适应新档案的成像特征，提高此前未定标底片的恢复能力。
-    </span>
-    <span lang="en">
-      To address imaging differences across observatories, telescopes, and photographic materials, we introduce a Gaia DR3-guided cross-archive fine-tuning strategy. The base model first detects stellar sources and attempts astrometric calibration on a new archive. Detections from successfully solved plates are then cross-matched with Gaia stellar positions to automatically generate training samples for fine-tuning, allowing the model to adapt to the new archive and recover additional unsolved plates.
-    </span>
-  </p>
-
-  <p>
-    <span lang="zh-CN">
-      对于检测得到的恒星，进一步通过原始 FITS 图像估计仪器亮度并进行排序，将筛选后的恒星坐标输入 Astrometry.net，完成自动天体测量定标。
-    </span>
-    <span lang="en">
-      For the detected stellar sources, approximate instrumental brightness is estimated from the original FITS images and used for source ranking. The selected stellar coordinates are then passed to Astrometry.net for automated astrometric calibration.
-    </span>
-  </p>
-</section>
-
-<section id="results">
-  <h2 style="text-align: center">
-    <span lang="zh-CN">研究结果：历史底片天体测量定标</span>
-    <span lang="en">Results: Astrometric Recovery of Historical Plates</span>
-  </h2>
-
-  <p>
-    <span lang="zh-CN">
-      我们将 Plate-YOLO 应用于乌兹别克斯坦乌鲁伯天文研究所（UBAI）的历史底片档案，
-      对其中 150 张传统方法无法成功定标的底片进行了测试。
-      基础模型首先恢复了 40 张，利用这些底片自动构建训练样本并进行跨档案微调后，
-      又成功恢复 106 张。在排除 4 张特殊彗星跟踪观测底片后，
-      <b>146 张常规观测底片全部成功定标，成功率达到 100%</b>。
-    </span>
-    <span lang="en">
-      We applied Plate-YOLO to the historical photographic plate archive
-      of the Ulugh Beg Astronomical Institute (UBAI), Uzbekistan,
-      evaluating 150 plates that could not be solved using conventional methods.
-      The base model initially recovered 40 plates.
-      After cross-archive fine-tuning using automatically generated training samples,
-      an additional 106 plates were successfully recovered.
-      Excluding four special comet-tracking observations,
-      <b>all 146 plates from conventional observing modes were successfully solved,
-      achieving a 100% recovery rate within this subset</b>.
-    </span>
-  </p>
-
-  <figure>
-    <b>
-      <span lang="zh-CN">150 张原未定标底片的恢复结果</span>
-      <span lang="en">Recovery of 150 Previously Unsolved Plates</span>
-    </b>
-
-    <div class="bar" aria-hidden="true">
-      <div class="base"></div>
-      <div class="tuned"></div>
-      <div class="unsolved"></div>
-    </div>
-
-    <div class="legend">
-      <span>
-        <i style="background:var(--blue)" aria-hidden="true"></i>
-        <span>
-          <span lang="zh-CN">基础模型恢复：40 张</span>
-          <span lang="en">Base model: 40 recovered</span>
-        </span>
-      </span>
-
-      <span>
-        <i style="background:var(--red)" aria-hidden="true"></i>
-        <span>
-          <span lang="zh-CN">微调新增恢复：106 张</span>
-          <span lang="en">Fine-tuning: 106 additional recoveries</span>
-        </span>
-      </span>
-
-      <span>
-        <i style="background:var(--pending)" aria-hidden="true"></i>
-        <span>
-          <span lang="zh-CN">特殊彗星观测：4 张</span>
-          <span lang="en">Special comet observations: 4</span>
-        </span>
-      </span>
-    </div>
-
-    <figcaption style="text-align: center">
-      <span lang="zh-CN">
-        图 4. Plate-YOLO 在 150 张历史底片上的恢复结果。
-        146 张非彗星跟踪底片全部成功定标。
-      </span>
-      <span lang="en">
-        Figure 4. Plate-YOLO recovery results for 150 historical plates.
-        All 146 non-comet-tracking plates were successfully solved.
-      </span>
-    </figcaption>
-  </figure>
-
-  <h3>
-    <span lang="zh-CN">特殊观测底片</span>
-    <span lang="en">Special Observations</span>
-  </h3>
-
-  <p>
-    <span lang="zh-CN">
-      其余 4 张未能定标的底片均采用特殊的彗星跟踪观测模式。
-      由于望远镜跟踪彗星运动，背景恒星呈现明显拖线，
-      导致可用于星图匹配的点状恒星数量不足，
-      因而无法获得可靠的天体测量解。
-      这类观测不同于 Plate-YOLO 主要针对的常规恒星观测底片。
-    </span>
-    <span lang="en">
-      The four remaining unsolved plates were acquired using a special
-      comet-tracking observing mode. As the telescope tracked the comet,
-      background stars appeared significantly trailed,
-      leaving insufficient compact stellar sources for reliable astrometric matching.
-      These observations differ from the conventional stellar observations
-      primarily addressed by Plate-YOLO.
-    </span>
-  </p>
-
-  <!-- 彗星跟踪观测底片图 -->
-  <figure>
-    <img
-      src="figs/object-dection-fail.png"
-      alt="Examples of comet-tracking photographic plates"
-      class="method-figure"
-    >
-
-    <figcaption style="text-align: center">
-      <span lang="zh-CN">
-        图 5. 特殊彗星跟踪观测底片示例。
-        背景恒星因望远镜跟踪彗星而呈现明显拖线。
-      </span>
-      <span lang="en">
-        Figure 5. Examples of special comet-tracking plates.
-        Background stars exhibit significant trailing due to comet tracking.
-      </span>
-    </figcaption>
-  </figure>
-</section>
-<section id="outlook"><h2 style="text-align: center"><span lang="zh-CN">科学意义与未来工作</span><span lang="en">Scientific Impact and Future Work</span></h2>
-<p><span lang="zh-CN">“星鉴”连接了高精度底片数字化扫描与自动化科学数据处理，为历史观测遗产从图像保存走向可用于科学研究的天体测量数据提供了新的技术途径。其研发进一步完善了上海天文台天文底片数字化实验室的技术体系。</span><span lang="en">Plate-YOLO connects high-precision plate digitization with automated scientific data processing, providing a new route from preserved images to astrometric data usable in research. It extends the laboratory’s capabilities from scanning hardware to scientific data production.</span></p>
-<p><span lang="zh-CN">未来，研究团队将推动模型在不同国家、不同望远镜及不同年代的底片档案中应用，通过针对性微调提高批量处理效率和定标成功率，为恒星自行、长期变源及其他时域天文研究拓展百年观测时间基线。</span><span lang="en">Future work will extend the model to archives from different countries, telescopes, and observing eras. Targeted fine-tuning is expected to improve large-scale processing efficiency and astrometric success rates, extending the observational baseline for stellar proper motions, long-term variability, and other time-domain studies across a century.</span></p>
-</section>
-<!-- <section id="resources"><h2 style="text-align: center"><span lang="zh-CN">成果共享与研究支持</span><span lang="en">Resources and Acknowledgments</span></h2>
-<p><span lang="zh-CN">研究团队正通过 ScienceDB 等科学数据共享平台推动相关研究成果与模型资源的发布和共享。</span><span lang="en">The team is working to release and share the research outputs and model resources through scientific data-sharing platforms including ScienceDB.</span></p>
-<p><span lang="zh-CN">论文第一作者为中国科学院上海天文台徐权峰，通讯作者为沈世银和于涌。该研究获得国家重点研发计划、国家自然科学基金及中国科学院国际合作项目等支持。</span><span lang="en">The first author is Quanfeng Xu of Shanghai Astronomical Observatory, Chinese Academy of Sciences; the corresponding authors are Shiyin Shen and Yong Yu. The research was supported by the National Key R&amp;D Program of China, the National Natural Science Foundation of China, and international cooperation programs of the Chinese Academy of Sciences, among other sources.</span></p>
-</section> -->
+<nav aria-label="Sections"><a href="#overview"><span lang="zh-CN">认识星鉴</span><span lang="en">Meet Plate-YOLO</span></a><a href="#background"><span lang="zh-CN">团队积累</span><span lang="en">Our Experience</span></a><a href="#results"><span lang="zh-CN">找回历史观测</span><span lang="en">Recover Observations</span></a><a href="#method"><span lang="zh-CN">核心能力</span><span lang="en">Capabilities</span></a><a href="#outlook"><span lang="zh-CN">百年科学价值</span><span lang="en">Scientific Value</span></a><a href="#resources"><span lang="zh-CN">代码与论文</span><span lang="en">Code & Paper</span></a></nav></header>
+<section id="overview"><h2 style="text-align:center"><span lang="zh-CN">让百年星空，重新成为可用数据</span><span lang="en">A Century of Sky, Ready for New Discoveries</span></h2>
+  <p class="lead"><span lang="zh-CN">划痕、污损和微弱星像，让一些珍贵的历史底片长期停留在“看得见，却难以测量”的状态。<b>星鉴（Plate-YOLO）从复杂底片中识别恒星，为自动天体测量定标提供可靠的源数据，让更多历史观测重新进入科学研究。</b></span><span lang="en">Scratches, blemishes, and faint stellar images can leave valuable historical plates visible but difficult to measure. <b>Plate-YOLO identifies stars in complex plate images and supplies reliable source detections for automated astrometric calibration, bringing more historical observations back into scientific use.</b></span></p>
+  <div class="resource-links hero-actions"><a class="resource-link" href="#results"><span lang="zh-CN">看星鉴能做到什么</span><span lang="en">See What Plate-YOLO Can Do</span></a><a class="resource-link" href="https://github.com/xuquanfeng/Plate_YOLO" target="_blank" rel="noopener noreferrer"><span lang="zh-CN">获取代码 ↗</span><span lang="en">Explore the Code ↗</span></a></div><div class="metrics"><div class="metric"><b>146</b><span class="label"><span lang="zh-CN">张历史底片重获天球坐标</span><span lang="en">historical plates recovered</span></span><span class="detail"><span lang="zh-CN">UBAI 原未定标底片测试</span><span lang="en">Previously unsolved plates in the UBAI test</span></span></div><div class="metric"><b>0.563″</b><span class="label"><span lang="zh-CN">位置残差 RMS 中位数</span><span lang="en">median positional RMS residual</span></span><span class="detail"><span lang="zh-CN">微调新增恢复样本，相对于 Gaia DR3</span><span lang="en">Additional recoveries after fine-tuning; relative to Gaia DR3</span></span></div><div class="metric"><b>≈ 2.6×</b><span class="label"><span lang="zh-CN">源检测速度提升</span><span lang="en">faster source detection</span></span><span class="detail"><span lang="zh-CN">相较 SExtractor；已定标底片测试</span><span lang="en">Compared with SExtractor on already solved plates</span></span></div></div><figure><img src="figs/result.png" class="method-figure" alt="Plate-YOLO stellar detections on historical plates" loading="lazy"><figcaption style="text-align:center"><span lang="zh-CN">图 1. 在复杂历史底片中识别恒星目标。</span><span lang="en">Figure 1. Identifying stellar sources in complex historical plate images.</span></figcaption></figure></section>
+<section id="background"><h2 style="text-align:center"><span lang="zh-CN">来自历史底片数字化一线</span><span lang="en">Built on Hands-On Plate Digitization</span></h2><p class=""><span lang="zh-CN">星鉴由中国科学院上海天文台天文底片数字化实验室研发。从高精度扫描到恒星识别与坐标定标，团队长期面对历史底片的真实处理难题，将数字化经验转化为专门面向底片的智能检测能力。</span><span lang="en">Plate-YOLO was developed by the Astronomical Plate Digitization Laboratory at Shanghai Astronomical Observatory, Chinese Academy of Sciences. Working from high-precision scanning through stellar identification and astrometric calibration, the team brings practical experience with historical plates to a purpose-built detection framework.</span></p><figure><img src="figs/scan_images.png" class="method-figure" alt="High-precision astronomical plate scanner" loading="lazy"><figcaption style="text-align:center"><span lang="zh-CN">图 3. 上海天文台自主研发的高精度底片扫描仪。</span><span lang="en">Figure 3. High-precision plate scanners developed at Shanghai Astronomical Observatory.</span></figcaption></figure><p class=""><span lang="zh-CN">实验室拥有 <b>5 台高精度扫描仪</b>，其中 4 台亚微米级测量设备为自主研制；已完成我国 <b>29,314 张</b>历史底片的数字化，并开放共享其中 15,696 张的图像及天体测量成果。与多个国家天文机构的合作，进一步积累了约 5 万张国际历史底片的数字化经验。</span><span lang="en">The laboratory operates <b>five high-precision scanners</b>, including four in-house submicrometer-level measuring systems. It has digitized <b>29,314 Chinese historical plates</b> and shared images and astrometric results for 15,696 of them. International collaborations have added experience digitizing approximately 50,000 plates from overseas archives.</span></p></section>
+<section id="results"><h2 style="text-align:center"><span lang="zh-CN">让难以定标的底片，重新找到星空坐标</span><span lang="en">Putting Unsolved Plates Back on the Sky</span></h2><p class=""><span lang="zh-CN">在乌兹别克斯坦乌鲁伯天文研究所（UBAI）的历史档案中，星鉴让 <b>146 张传统方法未能定标的底片重新获得天球坐标</b>。那些曾经难以利用的观测记录，由此有了重新参与天体位置与长期变化研究的机会。</span><span lang="en">In the historical archive of the Ulugh Beg Astronomical Institute (UBAI), Uzbekistan, Plate-YOLO <b>recovered celestial coordinates for 146 plates that conventional methods could not solve</b>, making those observations available again for studies of stellar positions and long-term changes.</span></p><div class="recovery-highlight"><strong>100%</strong><p class=""><span lang="zh-CN">本次测试中，非彗星跟踪底片全部成功定标</span><span lang="en">Every non-comet-tracking plate in this test was successfully solved</span></p></div><p class="fine"><span lang="zh-CN">测试范围：150 张原未定标底片，整体恢复率为 97.3%；排除 4 张仍未定标的特殊彗星跟踪底片后，非彗星跟踪子集恢复率为 100%。</span><span lang="en">Test scope: 150 previously unsolved plates, with an overall recovery rate of 97.3%. Excluding four comet-tracking plates that remained unsolved, recovery was 100% within the non-comet-tracking subset.</span></p></section>
+<section id="method"><h2 style="text-align:center"><span lang="zh-CN">识别更可靠，处理更高效</span><span lang="en">More Reliable Detections. Faster Processing.</span></h2><h3><span lang="zh-CN">从复杂背景中，找出真正的恒星</span><span lang="en">Find the Stars Among the Defects</span></h3><p class=""><span lang="zh-CN">针对微小、微弱的星像，星鉴优化了目标检测与定位能力，并在同一个模型中区分恒星与非恒星结构。减少划痕、污损等伪源的干扰，为后续星表匹配提供更可靠的起点。</span><span lang="en">Designed for tiny, faint stellar images, Plate-YOLO improves detection and localization while distinguishing stars from non-stellar structures in one model. Rejecting artifacts such as scratches and blemishes provides a more reliable starting point for catalog matching.</span></p><h3><span lang="zh-CN">更快完成源检测，为批量处理节省时间</span><span lang="en">Spend Less Time on Source Detection</span></h3><p class=""><span lang="zh-CN">在已成功定标底片的测试中，星鉴平均每张底片的源检测耗时约 <b>7.4 秒</b>，SExtractor 约为 19.4 秒。约 <b>2.6 倍</b>的源检测速度，让大批量历史底片处理更高效。</span><span lang="en">On already solved test plates, source detection took an average of <b>7.4 seconds per plate</b> with Plate-YOLO, compared with 19.4 seconds for SExtractor. The approximately <b>2.6×</b> speedup makes source detection more efficient for large plate collections.</span></p><h3><span lang="zh-CN">适应不同档案，减少人工标注</span><span lang="en">Adapt to New Archives with Less Manual Labeling</span></h3><p class=""><span lang="zh-CN">不同望远镜、感光材料与保存条件，会留下不同的星像特征。星鉴利用 Gaia 参考星表自动生成微调样本，使模型适应新档案，减少逐一人工标注的需求。检测得到的恒星位置经过亮度估计与排序后，交由 Astrometry.net 完成天体测量定标。</span><span lang="en">Different telescopes, photographic materials, and storage conditions produce different stellar images. Plate-YOLO uses the Gaia reference catalog to generate fine-tuning samples automatically, adapting to new archives with less manual labeling. Detected stellar positions are ranked using estimated brightness and passed to Astrometry.net for astrometric calibration.</span></p><details><summary><span lang="zh-CN">了解模型设计</span><span lang="en">Explore the Model Design</span></summary><p class=""><span lang="zh-CN">模型基于 YOLOv5，结合 P2 高分辨率检测头、SPD-Conv、SimAM 注意力与 NWD 损失，分别增强小目标检测、空间信息保留、特征提取与微小目标定位。</span><span lang="en">Built on YOLOv5, the model combines a high-resolution P2 detection head, SPD-Conv, SimAM attention, and NWD loss to improve small-object detection, spatial information preservation, feature extraction, and localization.</span></p><figure><img src="figs/plate-yolo.png" class="method-figure" alt="Plate-YOLO network architecture" loading="lazy"><figcaption style="text-align:center"><span lang="zh-CN">图 2. Plate-YOLO 模型结构。</span><span lang="en">Figure 2. Plate-YOLO model architecture.</span></figcaption></figure></details></section>
+<section id="outlook"><h2 style="text-align:center"><span lang="zh-CN">用今天的方法，追溯百年的变化</span><span lang="en">Today’s Methods. A Century of Change.</span></h2><p class=""><span lang="zh-CN">一张底片，记录的是某个时刻的星空；跨越百年的底片档案，则保存了现代巡天无法替代的时间跨度。让更多底片获得可靠坐标，就能为恒星自行、长期变源和其他时域天文研究补充更早的观测依据。</span><span lang="en">A single plate captures the sky at one moment; a century of plates preserves a time span that modern surveys alone cannot provide. Reliable coordinates make more of these records usable as earlier observations for stellar proper motions, long-term variability, and other time-domain studies.</span></p><p class=""><span lang="zh-CN">星鉴将继续面向不同国家、望远镜与观测年代的档案开展适配，让珍贵的历史观测在新的研究中发挥作用。</span><span lang="en">Future adaptation to archives from different countries, telescopes, and observing eras will help bring these historical observations into new research.</span></p></section>
 <section id="resources">
-  <h2 style="text-align: center">
-    <span lang="zh-CN">成果共享与研究支持</span>
-    <span lang="en">Resources and Acknowledgments</span>
-  </h2>
-
-  <p>
-    <span lang="zh-CN">
-      为促进历史天文底片的数字化研究与科学利用，
-      我们通过 ScienceDB 和 arXiv 共享相关研究成果，
-      包括论文、实验数据及模型资源，以支持后续研究与方法复现。
-    </span>
-    <span lang="en">
-      To promote the scientific use of historical astronomical plates,
-      we share our research outputs through ScienceDB and arXiv,
-      including publications, experimental data, and model resources,
-      supporting further research and reproducibility.
-    </span>
-  </p>
-
-  <!-- 资源链接 -->
+  <h2 style="text-align: center"><span lang="zh-CN">探索星鉴，开始你的底片研究</span><span lang="en">Explore Plate-YOLO for Your Archive</span></h2><p class=""><span lang="zh-CN">从论文了解方法，进入代码仓库探索实现，并通过下方资源入口了解相关研究材料。</span><span lang="en">Read the paper, explore the implementation, and follow the resource links below to learn more about the research materials.</span></p>
+  
   <div class="resource-links">
     <a
       href="https://github.com/xuquanfeng/Plate_YOLO"
@@ -499,7 +240,7 @@ html {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span>Github</span>
+      <span><span lang="zh-CN">获取代码 · GitHub</span><span lang="en">Explore the Code · GitHub</span></span>
       <span class="resource-arrow">↗</span>
     </a>
 
@@ -513,15 +254,7 @@ html {
       <span class="resource-arrow">↗</span>
     </a>
 
-    <a
-      href="YOUR_SCIENCEDB_URL"
-      class="resource-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span>ScienceDB</span>
-      <span class="resource-arrow">↗</span>
-    </a>
+    <span class="resource-link resource-pending">ScienceDB · <span lang="zh-CN">链接待更新</span><span lang="en">Link forthcoming</span></span>
 
     <a
       href="https://arxiv.org/abs/2610.25677"
@@ -529,22 +262,14 @@ html {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span>arXiv</span>
+      <span><span lang="zh-CN">阅读论文 · arXiv</span><span lang="en">Read the Paper · arXiv</span></span>
       <span class="resource-arrow">↗</span>
     </a>
 
-    <a
-      href="YOUR_ARXIV_URL"
-      class="resource-link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span>Paper</span>
-      <span class="resource-arrow">↗</span>
-    </a>
+    
   </div>
 
-  <!-- BibTeX -->
+  
   <h3>
     <span lang="zh-CN">引用本研究</span>
     <span lang="en">Cite This Work</span>
@@ -580,7 +305,7 @@ html {
 </code></pre>
   </div>
 
-  <!-- 研究团队与资助 -->
+  
   <h3>
     <span lang="zh-CN">研究团队与项目支持</span>
     <span lang="en">Research Team and Acknowledgments</span>
@@ -628,7 +353,7 @@ html {
       const isZh = document.documentElement.dataset.language === 'zh';
 
       // 显示复制成功
-      button.textContent = isZh ? '✓ 已复制' : '✓ Copied!';
+      button.innerHTML = '<span lang="zh-CN">✓ 已复制</span><span lang="en">✓ Copied!</span>';
 
       setTimeout(() => {
         button.innerHTML = `
@@ -639,10 +364,7 @@ html {
 
     } catch (error) {
       console.error('Copy failed:', error);
-      button.textContent =
-        document.documentElement.dataset.language === 'zh'
-          ? '复制失败，请手动选择'
-          : 'Copy failed; please select manually';
+      button.innerHTML = '<span lang="zh-CN">复制失败，请手动选择</span><span lang="en">Copy failed; please select manually</span>';
     }
   });
 })();
